@@ -1,0 +1,357 @@
+﻿/* .mask-custom sınıfı arka plan bulanıklığı ve renk ayarları için */
+.mask-custom {
+    backdrop-filter: blur(5px);
+    /* Bulanıklaştırma efekti */
+    background-color: rgba(255, 255, 255, .15);
+    /* Şeffaf arka plan rengi */
+}
+
+/* Logo pozisyonlandırması için */
+.position-logo {
+    display: flex;
+    justify-content: center;
+    /* Logoyu yatayda ortalamak için */
+    align-items: center;
+    /* Logoyu dikeyde ortalamak için */
+    margin-bottom: 20px;
+    /* Logonun altına boşluk bırakmak için */
+}
+
+/* Navbar (menü) içindeki öğeleri ortalamak için */
+.collapse.navbar-collapse {
+    display: flex;
+    justify-content: center;
+    /* Menü öğelerini yatayda ortalamak için */
+}
+
+/* Container ayarları */
+.container {
+    display: flex;
+    /* flex-direction: column; Logoyu ve menüyü alt alta sıralamak için (gerektiğinde açılabilir) */
+    justify-content: center;
+    align-items: center;
+    /* Ortalamak için otomatik marjin */
+    /* Üst ve alt boşluk */
+    margin-top: 125px;
+}
+
+/* Navbar menüsü için ayarlar */
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    /* Menü öğelerini ortalamak için */
+}
+
+/* Her bir menü öğesi için ayar */
+.nav-item {
+    display: flex;
+    align-items: center;
+    /* Menü öğesini ortalamak için */
+}
+
+/* Dil değiştirme öğesi için özel konum ayarı */
+#language {
+    display: flex;
+    margin-left: auto !important;
+    /* Dil öğesini en sağa hizalamak için */
+}
+
+/* Menüdeki bağlantılar için stiller */
+.nav-link {
+    margin: 0 10px;
+    /* Menü öğeleri arasında boşluk bırakmak için */
+    position: relative;
+    /* Önceki ve sonraki efektler için konumlandırma */
+    margin: 0 8px;
+    /* Kenar boşlukları */
+    line-height: 80px;
+    /* Satır yüksekliği */
+    color: #333;
+    /* Varsayılan renk */
+    text-decoration: none;
+    /* Alt çizgiyi kaldır */
+    transition: color 0.3s ease;
+    /* Renk değişimi geçiş süresi */
+}
+
+    /* Alt çizgi efekti için pseudo-element */
+    .nav-link::before {
+        content: '';
+        /* Pseudo-element boş içerik */
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        /* Alt çizgi kalınlığı */
+        background-color: #16639d;
+        /* Çizgi rengi */
+        transition: transform 300ms ease-in-out;
+        /* Çizginin açılma animasyonu */
+        transform: scaleX(0);
+        /* Çizgi başlangıç durumu (kapalı) */
+        transform-origin: left;
+        /* Animasyon sol tarafa göre başlar */
+        /* border-radius: 100px;  BURAYA BAK*/
+    }
+
+    /* Bağlantı üzerine gelindiğinde alt çizginin açılması */
+    .nav-link:hover::before,
+    .nav-link:focus::before {
+        transform: scaleX(1);
+        /* Çizgiyi tam genişlikte göster */
+    }
+
+    /* Menü öğesi üzerine gelindiğinde renk değişimi */
+    .nav-link:hover {
+        color: #16639d !important;
+        /* Hover durumunda bağlantı rengini değiştir */
+    }
+
+/* Pop-up kapalı iken gizli hale getir */
+
+
+
+.content {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.pop-up {
+    position: relative;
+    display: inline-block;
+}
+
+.popcontent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+    .popcontent a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        .popcontent a:hover {
+            background-color: #f1f1f1
+        }
+
+    .popcontent:hover .dropdown-content {
+        display: block;
+    }
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/* Dropdown button style */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    top: 100px;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+#navbarSupportedContent {
+    font-family: 'Yantramanav';
+}
+
+footer {
+    width: 100%;
+    margin: 0%;
+}
+
+.photo_area img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 0.15em;
+}
+
+#jump_link_bar {
+    background-color: #CDCDCB;
+    border-radius: 2%;
+}
+
+.img_wrapper {
+    border-style: solid;
+    border-width: 3px;
+    border-top-width: 0.7em;
+    border-radius: 2%;
+    border-color: #CDCDCB;
+    background-color: #CDCDCB;
+    color: rgb(30, 30, 30);
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 1em;
+    padding: 0.1em;
+}
+
+.footer_stripes_with_color_palette {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    /* 6 equal columns for the color palette*/
+    width: auto;
+    /* Ensure the div spans the entire width of the screen */
+}
+
+    .footer_stripes_with_color_palette span {
+        display: block;
+        height: 10px;
+        /*border-bottom: 1px solid #111111;*/
+    }
+
+.footer_columns {
+    height: 85vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+    .footer_columns div {
+        flex: row;
+        /*border: 1px solid #604363;*/
+        text-align: left;
+        background-color: white;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+        .footer_columns div h1 {
+            width: auto;
+            text-align: left;
+            color: #146A99;
+            font-size: large;
+            position: relative;
+            margin-bottom: 10%;
+        }
+
+        .footer_columns div a {
+            text-align: left;
+            color: black;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            margin-bottom: 10%;
+        }
+
+            .footer_columns div a:hover {
+                text-decoration: underline;
+            }
+
+/* img {
+            width: 15%;
+            height: 15%;
+            float: left;
+        }*/
+
+.footer_bottom_logos {
+    display: flex;
+    justify-content: flex-end
+}
+
+    .footer_bottom_logos img {
+        width: auto;
+        height: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-right: black solid 1px;
+    }
+
+header {
+    color: #146A99;
+}
+
+.flex-container {
+    padding-top: 115px;
+    display: flex;
+    flex-direction: row;
+}
+
+.text_area {
+    width: 70%;
+}
+
+    .text_area h1 {
+        font-size: x-large;
+        font-style: bold;
+        text-align: left;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .text_area p {
+        font-size: medium;
+        padding: 1em;
+        line-height: 1.2em;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        letter-spacing: 0.03em;
+        color: rgb(30, 30, 30)
+    }
+
+.photo_area {
+    width: 30%;
+}
+
+    .photo_area .flex-container h2 {
+        font-size: medium;
+        padding-left: 1em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .photo_area .flex-container a {
+        text-align: left;
+        text-decoration: none;
+        padding-left: 1em;
+        padding-bottom: 0.5em;
+        color: #146a99;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+        .photo_area .flex-container a:hover {
+            text-decoration: underline;
+        }

@@ -4,36 +4,228 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+    <link rel="icon" type="image/png" href="images/IEEELOGO.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@400&display=swap" rel="stylesheet">
+    <style>
+    
+    </style>
+    <link href="~/Content/home.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
+    @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+            <div class="container">
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div class="container body-content">
+        </nav>*@
+    <header>
+
+        <!-- Navigasyon çubuğu -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0"
+             style="background: white; padding: 18px 25px;">
+            <div class="container" style="margin: -25px auto; padding-bottom: 0;">
+                <!-- Logo konumlandırma -->
+                <div class="position-logo">
+                    <a class="navbar-logo" href="@Url.Action("Index", "Home")"></a>
+                    <img src="~/images/ieee_ikcu.png" style="height: 95px;" alt="IEEE Logo">
+                </div>
+
+                <!-- Menü düğmesi (mobil görünüm için) -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Menü öğeleri -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent"
+                     style="justify-content: flex-end; Font-family: yantramanav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")">Anasayfa</a>
+                        </li>
+                        <!-- Hakkımızda açılır menüsü (Dropdown style) -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#!">Hakkımızda</a>
+                            <div class="dropdown-content">
+                                <a href="@Url.Action("VisionMission", "About")">Vizyon ve Misyon</a>
+                                <a href="@Url.Action("History", "About")">Tarihçe</a>
+                                <a href="#">IKCU IEEE</a>
+                                <a href="#">Yönetim ve İdari Kurul</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#!">Komiteler</a>
+                            <div class="dropdown-content">
+                                <a href="#">ComSoc</a>
+                                <a href="#">EMBS</a>
+                                <a href="#">CS</a>
+                                <a href="#">RAS</a>
+                                <a href="#">WIE</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!">Etkinlikler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!">Galeri</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!">İletişim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="language" href="#!" style="align-items: center;">English</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="flex-container">
+        @*container body-content*@
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
+        @*<footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    <footer>
+        <div class="footer_stripes_with_color_palette">
+            <span style="background-color: #AB1C2C;"></span>
+            <span style="background-color: #604363;"></span>
+            <span style="background-color: #146A99;"></span>
+            <span style="background-color: #719CB2;"></span>
+            <span style="background-color: #CDCDCB;"></span>
+            <span style="background-color: #AE7CB3;"></span>
+        </div>
+
+        <div class="footer_columns">
+            <div>
+                <h1>
+                    Hakkımızda
+                </h1>
+                <a href="/about">
+                    IEEE Tarihçesi
+                </a>
+                <a href="/history">
+                    İKÇÜ'de IEEE
+                </a>
+                <a href="/history">
+                    Yönetim Kurulu
+                </a>
+                <a href="/sponsors">
+                    Sponsorlarımız
+                </a>
+            </div>
+            <div>
+                <h1>
+                    Komitelerimiz
+                </h1>
+                <a href="/comsoc">
+                    Communications Society
+                </a>
+                <a href="/ras">
+                    Robotics & Automation Society
+                </a>
+                <a href="/pes">
+                    Power & Energy Society
+                </a>
+                <a href="/embs">
+                    Engineering in Medicine & Biology Society
+                </a>
+                <a href="/wie">
+                    Women in Engineering
+                </a>
+                <a href="/ttk">
+                    Tanıtım & Tasarım Komitesi
+                </a>
+            </div>
+            <div>
+                <h1>
+                    Sosyal Medyada IEEE
+                </h1>
+                <div>
+                    <img  src="~/images/linkedin.png">
+                    <a href="linkedinlink">
+                        &nbsp;LinkedIn
+                    </a>
+                </div>
+                <div>
+                    <img src="~/images/github.png">
+                    <a href="/githublink">
+                        &nbsp;Github
+                    </a>
+                </div>
+                <div>
+                    <img src="~/images/instagram.png">
+                    <a href="/instalink">
+                        &nbsp;Instagram
+                    </a>
+                </div>
+                <div>
+                    <img src="~/images/X.png">
+                    <a href="/xlink">
+                        &nbsp;X
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h1>
+                    Sorularınız, Önerileriniz İçin:
+                </h1>
+                <div>
+                    <img src="~/images/whatsapp.png"
+                         style="
+                 height: 40%;
+                 width: 40%;
+                 float: none;
+                 margin-left: 25%;
+             ">
+                    <a href="/whatsappcommunitylink" style="font-size: large">
+                        Whatsapp gruplarımıza katılın
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom_logos">
+            <img src="~/images/ikclogo_yuarlak_beyaz.png" alt="ikcu logo">
+            <img src="~/images/ieee-logo.png" alt="ieee logo"
+                 style="border-right: none;">
+        </div>
+    </footer>
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    <!-- JavaScript kütüphaneleri -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
