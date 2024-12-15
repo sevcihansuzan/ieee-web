@@ -247,60 +247,72 @@ footer {
         /*border-bottom: 1px solid #111111;*/
     }
 
-.footer_columns {
-    height: 85vh;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+/* General footer styling with compact height */
+footer {
+    width: 100%;
+    margin: 0;
+    background-color: #F8F9FA;
+    padding: 20px 0; /* Compact padding */
 }
 
-    .footer_columns div {
-        flex: row;
-        /*border: 1px solid #604363;*/
-        text-align: left;
-        background-color: white;
-        margin-left: 5%;
-        margin-right: 5%;
-    }
+/* Footer column layout adjustments */
+.footer_columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    font-family: 'Yantramanav', sans-serif;
+    font-weight: 300; /* Lighter font weight for cleaner look */
+    color: #333;
+}
 
-        .footer_columns div h1 {
+    /* Individual column styling */
+    .footer_columns div {
+        background-color: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+        
+    .footer_columns div div .logo_img {
             width: auto;
-            text-align: left;
-            color: #146A99;
-            font-size: large;
-            position: relative;
-            margin-bottom: 10%;
+            height: 20px;
+            padding-right: 10px;
         }
 
+        /* Footer headings */
+        .footer_columns div h1 {
+            color: #146A99;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Footer links */
         .footer_columns div a {
-            text-align: left;
-            color: black;
+            color: rgb(128, 128, 128);
             text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
             display: block;
-            position: relative;
-            margin-bottom: 10%;
+            transition: color 0.3s ease;
         }
 
             .footer_columns div a:hover {
                 text-decoration: underline;
+                color: #146A99;
             }
 
-/* img {
-            width: 15%;
-            height: 15%;
-            float: left;
-        }*/
-
+/* Footer bottom logos */
 .footer_bottom_logos {
     display: flex;
-    justify-content: flex-end
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
     .footer_bottom_logos img {
-        width: auto;
         height: 20px;
-        margin-left: 10px;
-        margin-right: 10px;
-        border-right: black solid 1px;
+        margin: 0 10px;
     }
 
 header {
