@@ -14,9 +14,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@400&display=swap" rel="stylesheet">
     <style>
-    
     </style>
     <link href="~/Content/home.css" rel="stylesheet" />
+    <link href="~/Content/yk-ik.css" rel="stylesheet" />
+    <link href="~/Content/vission-mission.css" rel="stylesheet" />
+    <link href="~/Content/ComSoc.css" rel="stylesheet" />
+
+
 </head>
 <body>
     @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
@@ -38,6 +42,7 @@
     <header>
 
         <!-- Navigasyon çubuğu -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0"
              style="background: white; padding: 18px 25px;">
             <div class="container" style="margin: -25px auto; padding-bottom: 0;">
@@ -68,17 +73,17 @@
                                 <a href="@Url.Action("VisionMission", "About")">Vizyon ve Misyon</a>
                                 <a href="@Url.Action("History", "About")">Tarihçe</a>
                                 <a href="#">IKCU IEEE</a>
-                                <a href="#">Yönetim ve İdari Kurul</a>
+                                <a href="@Url.Action("Directors", "About")">Yönetim ve İdari Kurul</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#!">Komiteler</a>
                             <div class="dropdown-content">
-                                <a href="#">ComSoc</a>
-                                <a href="#">EMBS</a>
-                                <a href="#">CS</a>
-                                <a href="#">RAS</a>
-                                <a href="#">WIE</a>
+                                <a href="@Url.Action("ComSoc", "Commitees")">ComSoc</a>
+                                <a href="@Url.Action("EMBS", "Commitees")">EMBS</a>
+                                <a href="@Url.Action("CS", "Commitees")">CS</a>
+                                <a href="@Url.Action("RAS", "Commitees")">RAS</a>
+                                <a href="@Url.Action("WIE", "Commitees")">WIE</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -216,6 +221,7 @@
     @*@Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")*@
     <!-- JavaScript kütüphaneleri -->
+    <script src="~/Scripts/yk-ik.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>

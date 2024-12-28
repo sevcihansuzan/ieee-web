@@ -9,14 +9,28 @@ namespace ieee_web.Controllers
     public class CommiteesController : Controller
     {
         // GET: Commitees
-        public ActionResult Comsoc()
+        public ActionResult ComSoc()
         {
             return View();
         }
 
-        public ActionResult cs()
+        public ActionResult CS()
         {
             return View();
         }
+        public ActionResult EMBS()
+        {
+            return View();
+        }
+
+        public ActionResult RAS()
+        {
+            return View();
+        }
+        public ActionResult WIE()
+        {
+            return View();
+        }
+
     }
 }
