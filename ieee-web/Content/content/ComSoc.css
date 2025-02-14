@@ -1,0 +1,138 @@
+﻿body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.section {
+    padding: 20px;
+    text-align: center;
+}
+
+.content-box {
+    padding: 0.5rem;
+    border-radius: 44px;
+    top: 100px;
+    background-color: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.header {
+    background-color: #b9c6d8;
+    color: black;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    display: inline-block;
+    border-bottom: 2px solid black;
+    padding-bottom: 1rem;
+    width: 33%;
+}
+
+.about {
+    background-color: #b9c6d8;
+    padding: 20px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    background-color: #b9c6d8;
+    color: black;
+    padding: 20px;
+}
+
+    .info div {
+        width: 83%;
+    }
+
+.committee {
+    background-color: #b9c6d8;
+    padding: 20px;
+}
+
+    .committee h2 {
+        color: black;
+    }
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #b9c6d8;
+    gap: 20px;
+}
+
+.info .box1,
+.info .box2 {
+    width: 45%;
+    text-align: left;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.grid-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Adjust the gap between items as needed */
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.grid-info {
+    flex: 1 1 300px;
+    /* Adjust the minimum width as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* gap: 10px; /* Adjust the gap between the image and text */
+    /* border: 1px solid #ccc; /* Optional: Add border to distinguish items */
+    padding: 10px;
+    /* Optional: Add padding inside the items */
+    transition: 0.2s;
+    border-radius: 10px;
+}
+
+    .grid-info:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        transform: scale(1.1) !important;
+    }
+
+    .grid-info img {
+        border-radius: 50%;
+        width: 170px;
+        /* Adjust the size of the image */
+        height: 170px;
+        object-fit: cover;
+        /* Ensure the image covers the designated area */
+    }
+
+    .grid-info h2,
+    .grid-info p {
+        margin: 0;
+        text-indent: 0;
+    }
+
+a.grid-info {
+    text-decoration: none;
+    color: inherit;
+}

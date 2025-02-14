@@ -1,0 +1,29 @@
+﻿line-height: 1.6;
+}
+
+.mission {
+    background-color: #daeefc;
+}
+
+.vision {
+    background-color: #f5e8ea;
+}
+
+.mission img {
+    order: 1;
+}
+
+.vision img {
+}
+
+@media (max-width: 768px) {
+    section {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+        section img, .text {
+            width: 100%;
+        }
+}body {
+}

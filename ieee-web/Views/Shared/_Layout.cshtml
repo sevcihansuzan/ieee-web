@@ -14,177 +14,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@400&display=swap" rel="stylesheet">
     <style>
-        /* Size control variable - adjust this to change calendar day sizes */
-        :root {
-            --primary-color: #146A99;
-            --secondary-color: #333;
-            --accent-color: #CDCDCB;
-            --hover-color: #f1f1f1;
-            --calendar-day-size: 80px; /* Adjust this value to change day square sizes */
-        }
-
-        /* Previous styles remain the same until calendar-grid */
-        body {
-            font-family: 'Yantramanav', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #719CB2;
-        }
-
-        .cal_container {
-            max-width: calc(7 * (var(--calendar-day-size) + 2rem));
-            margin: 2rem auto;
-            padding: 0 20px;
-            margin-top: 125px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .calendar-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background-color: white;
-            border-radius: 100px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, var(--calendar-day-size));
-            gap: 0.5rem;
-            padding: 1rem;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            justify-content: center;
-        }
-
-        .calendar-header {
-            color: var(--primary-color);
-            padding: 0.5rem;
-            text-align: center;
-            font-weight: bold;
-            font-size: 0.9rem;
-            width: var(--calendar-day-size);
-        }
-
-        .calendar-day {
-            position: relative;
-            width: var(--calendar-day-size);
-            height: var(--calendar-day-size);
-            background: white;
-            border-radius: 5px;
-            padding: 0.5rem;
-            box-sizing: border-box;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-            .calendar-day.has-task {
-                cursor: pointer;
-                border: 2px solid var(--primary-color); /* Added this line to show blue border for tasks */
-            }
-
-                .calendar-day.has-task:hover {
-                    transform: scale(5);
-                    z-index: 100;
-                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-                }
-
-            .calendar-day.today {
-                border: 2px solid var(--primary-color);
-            }
-
-        .day-number {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .day-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            color: var(--secondary-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 0.5rem;
-            box-sizing: border-box;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-            border-radius: 5px;
-        }
-
-        .calendar-day.has-task:hover .day-content {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .day-image {
-            width: 100%;
-            height: 70%;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        .day-text {
-            margin-top: 0.5rem;
-            font-size: 0.5rem;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            letter-spacing: 0.03em;
-            color: rgb(30, 30, 30);
-        }
-
-        .month-title {
-            grid-column: 1 / -1;
-            text-align: center;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin: 2rem 0 1rem;
-            font-weight: bold;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .nav-button {
-            background-color: white;
-            color: var(--primary-color);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-            .nav-button::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                height: 2px;
-                background-color: var(--primary-color);
-                transition: transform 300ms ease-in-out;
-                transform: scaleX(0);
-                transform-origin: left;
-            }
-
-            .nav-button:hover::before {
-                transform: scaleX(1);
-            }
+    
     </style>
     <link href="~/Content/home.css" rel="stylesheet" />
+    <link href="~/Content/yk-ik.css" rel="stylesheet" />
+    <link href="~/Content/vission-mission.css" rel="stylesheet" />
+    <link href="~/Content/ComSoc.css" rel="stylesheet" />
+
+
 </head>
 <body>
     @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
@@ -206,6 +43,7 @@
     <header>
 
         <!-- Navigasyon çubuğu -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0"
              style="background: white; padding: 18px 25px;">
             <div class="container" style="margin: -25px auto; padding-bottom: 0;">
@@ -236,17 +74,17 @@
                                 <a href="@Url.Action("VisionMission", "About")">Vizyon ve Misyon</a>
                                 <a href="@Url.Action("History", "About")">Tarihçe</a>
                                 <a href="#">IKCU IEEE</a>
-                                <a href="#">Yönetim ve İdari Kurul</a>
+                                <a href="@Url.Action("Directors", "About")">Yönetim ve İdari Kurul</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" id="committees" href="#!">Komiteler</a>
                             <div class="dropdown-content">
-                                <a href="#">ComSoc</a>
-                                <a href="#">EMBS</a>
-                                <a href="#">CS</a>
-                                <a href="#">RAS</a>
-                                <a href="#">WIE</a>
+                                <a href="@Url.Action("ComSoc", "Commitees")">ComSoc</a>
+                                <a href="@Url.Action("EMBS", "Commitees")">EMBS</a>
+                                <a href="@Url.Action("CS", "Commitees")">CS</a>
+                                <a href="@Url.Action("RAS", "Commitees")">RAS</a>
+                                <a href="@Url.Action("WIE", "Commitees")">WIE</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -383,6 +221,7 @@
     @*@Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")*@
     <!-- JavaScript kütüphaneleri -->
+    <script src="~/Scripts/yk-ik.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>

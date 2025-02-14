@@ -18,5 +18,14 @@ namespace ieee_web.Controllers
         {
             return View();
         }
+
+        public ActionResult Directors()
+        {
+            return View();
+        }
+        public ActionResult Ikcu_ieee()
+        {
+            return View();
+        }
     }
 }
