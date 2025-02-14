@@ -1,8 +1,278 @@
 ﻿
 @{
     ViewBag.Title = "Events";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="cal_container">
+    <div class="calendar-nav">
+        <button class="nav-button" onclick="navigateMonths(-1)">Önceki</button>
+        <h2 id="current-month">Current Month</h2>
+        <button class="nav-button" onclick="navigateMonths(1)">Sonraki</button>
+    </div>
+    <br />
+    <div id="calendar" class="calendar-grid">
+        <!-- Calendar will be populated by JavaScript -->
+    </div>
+</div>
+
+<script>
+    const monthNames = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+        "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
+    const dayNames = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"];
+    let currentDate = new Date();
+    let displayedMonth = new Date();
+
+    // Initialize tasks object
+    const tasks = {};
+
+    // Add today's date as a task
+    const today = new Date();
+    const todayString = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
+    tasks[todayString] = {
+        image: "IEEELOGO.png",
+        text: "Example"
+    };
+
+    // Add a few more sample tasks
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+    const tomorrowString = `${tomorrow.getFullYear()}-${(tomorrow.getMonth() + 1).toString().padStart(2, '0')}-${tomorrow.getDate().toString().padStart(2, '0')}`;
+    tasks[tomorrowString] = {
+        image: "IEEE_IKCU.png",
+        text: "Follow-up"
+    };
+
+    // Add a few more sample tasks
+    const twelveth = new Date(2024, 11, 12); // Correctly set the 12th of December 2024
+    const twelvethString = `${twelveth.getFullYear()}-${(twelveth.getMonth() + 1).toString().padStart(2, '0')}-${twelveth.getDate().toString().padStart(2, '0')}`;
+
+    tasks[twelvethString] = {
+        image: "IEEELOGO.png", // Change the image as needed
+        text: "December 12th" // Change the text as needed
+    };
+
+    function initCalendar() {
+        displayMonth(displayedMonth);
+        updateMonthTitle();
+    }
+
+    function updateMonthTitle() {
+        document.getElementById('current-month').textContent =
+            `${monthNames[displayedMonth.getMonth()]} ${displayedMonth.getFullYear()}`;
+    }
+
+    function navigateMonths(delta) {
+        displayedMonth.setMonth(displayedMonth.getMonth() + delta);
+        initCalendar();
+    }
+
+    function displayMonth(date) {
+        const calendar = document.getElementById('calendar');
+        calendar.innerHTML = '';
+
+        dayNames.forEach(day => {
+            const dayHeader = document.createElement('div');
+            dayHeader.className = 'calendar-header';
+            dayHeader.textContent = day;
+            calendar.appendChild(dayHeader);
+        });
+
+        const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+        const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+        const startingDay = (firstDay.getDay() === 0) ? 6 : firstDay.getDay() - 1;
+
+        for (let i = 0; i < startingDay; i++) {
+            calendar.appendChild(createEmptyDay());
+        }
+
+        for (let day = 1; day <= lastDay.getDate(); day++) {
+            calendar.appendChild(createDay(day, date));
+        }
+    }
+
+    function createEmptyDay() {
+        const dayDiv = document.createElement('div');
+        dayDiv.className = 'calendar-day';
+        return dayDiv;
+    }
+
+    function createDay(day, monthDate) {
+        const dayDiv = document.createElement('div');
+        dayDiv.className = 'calendar-day';
+
+        const dateString = `${monthDate.getFullYear()}-${(monthDate.getMonth() + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+        const task = tasks[dateString];
+
+        if (task) {
+            dayDiv.classList.add('has-task');
+        }
+
+        if (day === today.getDate() &&
+            monthDate.getMonth() === today.getMonth() &&
+            monthDate.getFullYear() === today.getFullYear()) {
+            dayDiv.classList.add('today');
+        }
+
+        const dayNumber = document.createElement('div');
+        dayNumber.className = 'day-number';
+        dayNumber.textContent = day;
+        dayDiv.appendChild(dayNumber);
+
+        if (task) {
+            const content = document.createElement('div');
+            content.className = 'day-content';
+
+            const img = document.createElement('img');
+            img.className = 'day-image';
+            img.src = task.image;
+            img.alt = 'Task image';
+
+            const text = document.createElement('div');
+            text.className = 'day-text';
+            text.textContent = task.text;
+
+            content.appendChild(img);
+            content.appendChild(text);
+            dayDiv.appendChild(content);
+        }
+
+        return dayDiv;
+    }
+
+    initCalendar();
+    document.addEventListener("DOMContentLoaded", function () {
+        const languageToggle = document.getElementById("lang-switch");
+        const translations = {
+            header: {
+                tr: "Sorularınız, Önerileriniz İçin:",
+                en: "For Your Questions and Suggestions:"
+            },
+            "whatsapp-link": {
+                tr: "Whatsapp gruplarımıza katılın",
+                en: "Join our WhatsApp groups"
+            },
+            "lang-switch": {
+                tr: "English",
+                en: "Türkçe"
+            },
+            "contactUs": {
+                tr: "İletişim",
+                en: "Contact Us"
+            },
+            "gallery": {
+                tr: "Galeri",
+                en: "Gallery"
+            },
+            "events": {
+                tr: "Etkinlikler",
+                en: "Events"
+            },
+            "committees": {
+                tr: "Komiteler",
+                en: "Committees"
+            },
+            "about": {
+                tr: "Hakkımızda",
+                en: "About"
+            },
+            "homepage": {
+                tr: "Anasayfa",
+                en: "Home"
+            },
+            // Footer content
+            "footer-about": {
+                tr: "Hakkımızda",
+                en: "About"
+            },
+            "footer-ieee-history": {
+                tr: "IEEE Tarihçesi",
+                en: "IEEE History"
+            },
+            "footer-ikcu-ieee": {
+                tr: "İKÇÜ'de IEEE",
+                en: "IEEE at IKÇÜ"
+            },
+            "footer-board": {
+                tr: "Yönetim Kurulu",
+                en: "Board of Directors"
+            },
+            "footer-sponsors": {
+                tr: "Sponsorlarımız",
+                en: "Our Sponsors"
+            },
+            "footer-committees": {
+                tr: "Komitelerimiz",
+                en: "Our Committees"
+            },
+            "footer-comsoc": {
+                tr: "Communications Society",
+                en: "Communications Society"
+            },
+            "footer-ras": {
+                tr: "Robotics & Automation Society",
+                en: "Robotics & Automation Society"
+            },
+            "footer-pes": {
+                tr: "Power & Energy Society",
+                en: "Power & Energy Society"
+            },
+            "footer-embs": {
+                tr: "Engineering in Medicine & Biology Society",
+                en: "Engineering in Medicine & Biology Society"
+            },
+            "footer-wie": {
+                tr: "Women in Engineering",
+                en: "Women in Engineering"
+            },
+            "footer-ttk": {
+                tr: "Tanıtım & Tasarım Komitesi",
+                en: "Promotion & Design Committee"
+            },
+            "footer-social-media": {
+                tr: "Sosyal Medyada IEEE",
+                en: "IEEE on Social Media"
+            },
+            "footer-linkedin": {
+                tr: "LinkedIn",
+                en: "LinkedIn"
+            },
+            "footer-github": {
+                tr: "Github",
+                en: "Github"
+            },
+            "footer-instagram": {
+                tr: "Instagram",
+                en: "Instagram"
+            },
+            "footer-x": {
+                tr: "X",
+                en: "X"
+            },
+            "footer-whatsapp": {
+                tr: "Sorularınız, Önerileriniz İçin:",
+                en: "For Your Questions and Suggestions:"
+            },
+            "footer-whatsapp-join": {
+                tr: "Whatsapp gruplarımıza katılın",
+                en: "Join our WhatsApp groups"
+            }
+        };
+
+        let currentLanguage = "tr";
+
+        function switchLanguage() {
+            currentLanguage = currentLanguage === "tr" ? "en" : "tr";
+            for (let key in translations) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = translations[key][currentLanguage];
+                }
+            }
+        }
+
+        languageToggle.addEventListener("click", switchLanguage);
+    });
+
+</script>
 
 <h2>Events</h2>
 
