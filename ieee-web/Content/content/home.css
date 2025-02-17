@@ -322,7 +322,7 @@ header {
 .flex-container {
     padding-top: 115px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .text_area {

@@ -17,13 +17,12 @@
     
     </style>
     <link href="~/Content/home.css" rel="stylesheet" />
-    <link href="~/Content/yk-ik.css" rel="stylesheet" />
     <link href="~/Content/vission-mission.css" rel="stylesheet" />
-    <link href="~/Content/ComSoc.css" rel="stylesheet" />
+
 
 
 </head>
-<body>
+<body style="background:linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
     @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
             <div class="container">
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
@@ -104,15 +103,10 @@
             </div>
         </nav>
     </header>
-    <div class="flex-container">
-        @*container body-content*@
-        @RenderBody()
-        <hr />
 
-        @*<footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>*@
-    </div>
+       
+        @RenderBody()
+
 
 
 

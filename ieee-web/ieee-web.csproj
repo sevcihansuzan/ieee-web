@@ -150,6 +150,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Commites.css" />
     <Content Include="Content\content\bootstrap-grid.css" />
     <Content Include="Content\content\bootstrap-grid.min.css" />
     <Content Include="Content\content\bootstrap-grid.rtl.css" />
@@ -166,7 +167,6 @@
     <Content Include="Content\content\bootstrap.min.css" />
     <Content Include="Content\content\bootstrap.rtl.css" />
     <Content Include="Content\content\bootstrap.rtl.min.css" />
-    <Content Include="Content\content\ComSoc.css" />
     <Content Include="Content\content\home.css" />
     <Content Include="Content\content\ikcstyle-guide.css" />
     <Content Include="Content\content\ikcu-style.css" />
@@ -180,6 +180,15 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\ComSoc\Aydın-Sarı.jpg" />
+    <Content Include="images\ComSoc\Barış-Derelioğlu.jpg" />
+    <Content Include="images\ComSoc\Buse-Berfin-HALEFOĞLU.jpg" />
+    <Content Include="images\ComSoc\Ezgi-Mesut.jpg" />
+    <Content Include="images\ComSoc\Onur-Çınar.jpg" />
+    <Content Include="images\ComSoc\Sarp-Sünbül.jpg" />
+    <Content Include="images\ComSoc\Sevcihan-Suzan-BAĞCI.jpg" />
+    <Content Include="images\ComSoc\Tolga-Erkuran.jpg" />
+    <Content Include="images\ComSoc\İrem-Kurutepe.jpg" />
     <Content Include="images\electric-4198293_1280.jpg" />
     <Content Include="images\github.png" />
     <Content Include="images\ieee.png" />
